@@ -1,0 +1,292 @@
+
+@import './variables/variable.scss';
+
+    .header{
+        position:fixed;
+        width:100%;
+        pointer-events: none;
+        z-index: 10;
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+        background: #fff;
+        @include mobile{
+            justify-content: space-between;
+        }
+
+        .inWrap{
+            width:100%;
+            max-width: 1200px;  
+            margin: 0 auto; 
+            display: inline-flex; 
+            justify-content: space-between; 
+            align-items: center;
+            @include mobile{
+                justify-content: space-between;
+            }
+        }
+
+
+
+        .topHeader{
+            pointer-events: auto;
+            top:-50px;
+            transition: all 0.3s;
+            z-index: 1;
+            height:50px;
+            display: flex;
+            justify-content: space-between;
+            padding:0 1em;
+            align-items: center;
+            background:#fff;
+
+           
+        }
+
+        .subHeader {
+            pointer-events: auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position:relative;
+            padding:0 1.5em;
+            text-align: left;
+            background-color:#fff;
+            @include mobile{
+                position:absolute;
+                top:50px;
+                right:0;
+                width:100%;
+            }
+            ul{
+                display: flex;
+                @include mobile{
+                flex-direction: column;
+                }
+
+                li{
+                    padding:0 1em;
+                    font-weight: 600;
+                    font-size: 0.85em;
+                    white-space: nowrap;
+                    &.mb{
+                        display:none;
+                        @include mobile{
+                            display:block;
+                        }
+                    }
+                    button{
+                        display: flex;
+                        justify-content: flex-start; 
+                        align-items: center;
+                        img{display: none;}
+                        span{
+                            color:#2d2d2d;
+                            font-weight: 600;
+                            transition: opacity 0.3s;
+                            position: relative;
+                            // ======== hover시 밑줄 효과 =======
+
+                            // &:after{
+                            //     content: '';
+                            //     position:absolute;
+                            //     clear: both;
+                            //     width:100%;
+                            //     transform: scaleX(0);
+                            //     transition: transform 0.3s;
+                            //     height:1px;
+                            //     bottom:-4px;
+                            //     left:0;
+                            //     background-color: #fff;
+                            // }
+                        }
+                    }
+
+                }
+            }
+            &.on{
+
+
+            ul{
+                li{
+                    button{
+                        span{
+                        }
+                    }
+                    button:hover{
+                        span{
+                            color:$LightColor;
+                        }
+                    }
+                }
+            }
+            }
+
+            &:focus{
+                width:220px;
+            
+                ul{
+                    li{
+                        button{
+                            span{
+    
+                            }
+                        }
+                    }
+                }
+                }
+            }
+
+            .loginHeader {
+                pointer-events: auto;
+                @include mobile{
+                    display:none;
+                    }
+                ul{
+                    display: flex;
+                    @include mobile{
+                    flex-direction: column;
+                    }
+    
+                    li{
+                        padding:0 1em;
+                        font-weight: 600;
+                        font-size: 0.85em;
+                        white-space: nowrap;
+                        button{
+                            display: flex;
+                            justify-content: flex-start; 
+                            align-items: center;
+                            img{display: none;}
+                            span{
+                                color:#2d2d2d;
+                                font-weight: 600;
+                                transition: opacity 0.3s;
+                                position: relative;
+                            }
+                        }
+                        &:hover{
+                            button:hover{
+                                span{
+                                    color:$LightColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+             .hamburgerWrap{
+                display: none;
+                margin-right: 1em;
+                z-index: 3;
+                pointer-events: auto;
+                .center {
+                    width:1.7em;
+                    height:1.7em;
+                    display: flex;
+                    // justify-content: space-around;
+                    justify-content: center;
+                    align-items:center;
+                    flex-direction: column;
+                  }
+                  .center.on{
+                  }  
+                
+                  .center:before,
+                  .center:after,
+                  .center div {
+                    background: #959595;
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    width:100%;
+                    border-radius: 3px;
+                    // margin: 7px 0;
+                    transition: 0.5s;
+                    pointer-events: none;
+                    margin:11.5% 0;
+                  }
+                  
+                  .center.on:before {
+                    transform: translateY(400%) rotate(135deg);
+                  }
+                  .center.on:after {
+                    transform: translateY(-400%) rotate(-135deg);
+                  }
+                  .center.on div {
+                    transform: scale(0);
+                  }
+                  
+            }
+
+        }
+        @include mobile{
+        .header{
+            .topHeader{
+
+            }
+            .hamburgerWrap{
+                display: block;
+            }
+            .subHeader{
+                width:100%;
+                height:auto;
+                max-height: 0;
+                transition: max-height 0.5s;
+                overflow: hidden;
+                justify-content: flex-end;
+                padding:0;
+                ul{
+                    padding:1.5em;
+                    li{
+                    padding-bottom: 1.8em;
+                    &:last-child{
+                        padding-bottom: 1em;
+                    }
+
+                    button{
+                        img{
+                            display: block;
+                            margin-right: 0.3em;
+                        }
+                    }
+                        a{
+                            span{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                &.on{
+                    width:100%;
+                    max-height: 350px;
+                    ul{
+                        li{
+                            a{
+                                span{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                
+                }
+
+            }
+        }
+
+        }
+
+
+    .header.on{
+        .topHeader{
+        }
+        .subHeader{
+            // border-bottom: 1px solid rgb(216, 216, 216);
+        }
+    }

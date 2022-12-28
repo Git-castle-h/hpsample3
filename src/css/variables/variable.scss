@@ -1,0 +1,64 @@
+
+/*변수*/
+$red: #fa5252;
+$keyColor : #003F74;
+
+/*반응형 화면 크기*/
+$small: 500px;
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+
+/*반응형, 브라우저 크기가 500px 이하일때*/
+@mixin small{
+    @media (max-width: $small){
+      @content;
+    }
+  }
+
+/*반응형, 브라우저 크기가 767px 이하일때*/
+@mixin mobile{
+    @media (max-width: $mobile){
+      @content;
+    }
+  }
+  
+  /*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
+  @mixin tablet{
+    @media (max-width: $tablet){
+      @content;
+    }
+  }
+  
+  /*반응형, 브라우저 크기가 1024px 이상일때*/
+  @mixin desktop{
+    @media (min-width: $desktop){
+      @content;
+    }
+  }
+  
+  /*넓이, 높이 자동 계산함수*/
+  @mixin square($size){
+    $calculated: 32px * $size;
+    width: $calculated;
+    height: $calculated;
+  }
+  
+
+
+//색상
+
+$KeyColor : #003F74;
+$LightColor :#0058A3;
+$DeepColor :#06223A;
+
+$OnePointColor:rgb(255, 217, 0);
+$OnePointFont :#6D301B;
+
+$ChippoColor:#1C3664;
+$ChippoFont:rgb(255, 217, 0);
+
+$CoachColor : #76B804;
+
+

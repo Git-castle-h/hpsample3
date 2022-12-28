@@ -1,0 +1,49 @@
+@import './variables/variable.scss';
+.Footer{
+    padding:0;
+    margin:0;
+    text-align: center;
+    padding:2em 0;
+    background-color: rgb(247, 247, 247);
+    @include tablet{
+        font-size: 0.8em;
+    }
+    @include small{
+        font-size: 0.75em;
+    }
+    p{
+        line-height: 1.7;
+        color:#6A7A89;
+        font-weight: 200;
+        font-size: 0.9em;
+        span.tabletBlock{
+            display: contents;
+            @include tablet{
+                display:block;
+            }
+        }
+        span.margin{
+            position: relative;
+            margin:0.8em;
+            opacity: 0.4;
+            &:after{
+                position: absolute;
+                width:1px;
+                height:50%;
+                content: '';
+                background-color: #fff;
+                top:50%;
+                transform: translate(0,-50%);
+                left:0;
+            }
+        }
+        a{
+            color:#6A7A89;
+            transition:color 0.2s;
+            &:hover{
+                color:#fff;
+            }
+        }
+
+    }
+}
